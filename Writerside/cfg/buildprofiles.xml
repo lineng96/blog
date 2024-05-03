@@ -7,10 +7,4 @@
         <header-logo>https://cos.lineng.club/halo/tom-jerry.png</header-logo>
         <product-web-url>https://lineng.club</product-web-url>
     </variables>
-    <build-profile instance="lineng">
-        <variables>
-            <noindex-content>true</noindex-content>
-        </variables>
-    </build-profile>
-
 </buildprofiles>
