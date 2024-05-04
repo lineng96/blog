@@ -1,0 +1,443 @@
+<!--suppress XmlDefaultAttributeValue -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0">
+    <!-- Type definitions -->
+    <xs:complexType name="productStatus">
+        <xs:choice>
+            <xs:element name="eap"/>
+            <xs:element name="release"/>
+            <xs:element name="deprecated"/>
+        </xs:choice>
+    </xs:complexType>
+
+    <!-- Element definitions -->
+    <xs:element name="buildprofiles">
+        <xs:complexType mixed="false">
+            <xs:sequence>
+                <xs:element ref="variables" maxOccurs="1" minOccurs="1"/>
+                <xs:element ref="build-profile" minOccurs="1" maxOccurs="unbounded"/>
+                <xs:element ref="footer" minOccurs="0" maxOccurs="1"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="variables">
+        <xs:complexType mixed="false">
+            <xs:all>
+                <xs:element name="web-root" type="xs:string" minOccurs="0" maxOccurs="1"/>
+                <xs:element name="download-page" type="xs:string" minOccurs="0" maxOccurs="1"/>
+                <xs:element name="search-scope" type="xs:string" minOccurs="0" maxOccurs="1"/>
+                <xs:element name="fallback-url" type="xs:string" minOccurs="0" maxOccurs="1"/>
+                <xs:element ref="versions-switcher" minOccurs="0" maxOccurs="1"/>
+                <xs:element name="feedbackRequireEmail" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+                <xs:element name="showDownloadButton" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+                <xs:element name="feedback-url" type="xs:string" minOccurs="0" maxOccurs="1"/>
+                <xs:element ref="algolia-index" minOccurs="0" maxOccurs="1"/>
+                <xs:element ref="algolia-id" minOccurs="0" maxOccurs="1"/>
+                <xs:element name="versions-comparison" type="xs:string" minOccurs="0" maxOccurs="1"/>
+                <xs:element ref="algolia-api-key" minOccurs="0" maxOccurs="1"/>
+                <xs:element name="generate-sitemap-url-prefix" type="xs:string" minOccurs="0" maxOccurs="1"/>
+                <xs:element name="feedback-widget" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+                <xs:element name="webmaster" type="xs:string" minOccurs="0" maxOccurs="1"/>
+                <xs:element name="feedback-support" type="xs:string" minOccurs="0" maxOccurs="1"/>
+                <xs:element name="sideblocks" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+                <xs:element name="search-scopes-provider" type="xs:string" minOccurs="0" maxOccurs="1"/>
+                <xs:element ref="og-twitter" minOccurs="0" maxOccurs="1"/>
+                <xs:element ref="og-image" minOccurs="0" maxOccurs="1"/>
+                <xs:element name="property-cleanup" type="xs:string" minOccurs="0" maxOccurs="1"/>
+                <xs:element name="images-prefix-override" type="xs:string" minOccurs="0" maxOccurs="1"/>
+                <xs:element ref="noindex-content" minOccurs="0"/>
+                <xs:element ref="header-logo" minOccurs="0" maxOccurs="1"/>
+                <xs:element ref="color-preset" minOccurs="0" maxOccurs="1"/>
+                <xs:element ref="primary-color" minOccurs="0" maxOccurs="1"/>
+                <xs:element ref="product-web-url" minOccurs="0" maxOccurs="1"/>
+                <xs:element ref="enable-browser-edits" minOccurs="0" maxOccurs="1"/>
+                <xs:element ref="browser-edits-url" minOccurs="0" maxOccurs="1"/>
+                <xs:element name="locale-code" type="xs:string" minOccurs="0" maxOccurs="1"/>
+                <xs:element name="download-title" type="xs:string" minOccurs="0" maxOccurs="1"/>
+                <xs:element name="generate-canonicals" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+                <xs:element name="remark-comments" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+                <xs:element name="auto-convert-headings-to-chapters" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+                <xs:element name="max-search-hits-to-display" type="xs:integer" minOccurs="0" maxOccurs="1"/>
+                <xs:element name="upsource-commit-hash" type="xs:string" minOccurs="0" maxOccurs="1"/>
+                <xs:element name="upsource-repo-name" type="xs:string" minOccurs="0" maxOccurs="1"/>
+                <xs:element name="upsource-server-address" type="xs:string" minOccurs="0" maxOccurs="1"/>
+                <xs:element name="relative-url-to-absolute-prefix" type="xs:string" minOccurs="0" maxOccurs="1"/>
+                <xs:element name="custom-favicons" type="xs:string" minOccurs="0" maxOccurs="1"/>
+                <xs:element name="index-page-url-prefix" type="xs:string" minOccurs="0" maxOccurs="1"/>
+                <xs:element name="max-search-results" type="xs:string" minOccurs="0" maxOccurs="1"/>
+                <xs:element ref="custom-video-cover" minOccurs="0" maxOccurs="1"/>
+                <xs:element ref="write-help-state-file" minOccurs="0" maxOccurs="1"/>
+                <xs:element ref="analytics-head-script-file" minOccurs="0" maxOccurs="1"/>
+                <xs:element ref="analytics-body-html-file" minOccurs="0" maxOccurs="1"/>
+            </xs:all>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="versions-switcher" type="xs:string">
+        <xs:annotation>
+            <xs:documentation>
+                <p>
+                    Specify the link to the <code>help-versions.json</code> file that lists all published versions of
+                    your help project.
+                </p>
+
+                <pre>
+    &lt;versions-switcher&gt;https://raw.githubusercontent.com/${user}/${repo}/${branch}/help-versions.json&lt;/versions-switcher&gt;
+                </pre>
+            </xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="color-preset" type="xs:string">
+        <xs:annotation>
+            <xs:documentation>
+                <p>
+                    Specify a color preset. Presets define the intensity of the primary color used in webhelp UI. Possible values:
+                </p>
+
+                <ul>
+                    <li><code>soft</code>: a lightweight version without much contrast and with a minimal touch of the primary color.</li>
+                    <li><code>contrast</code> (default): a version with more contrast elements, like the header, drop-down menus, and pop-ups.</li>
+                    <li><code>vivid</code>: a version with an all-the-way usage of the primary color in the app.</li>
+                </ul>
+
+                <pre>
+    &lt;color-preset&gt;vivid&lt;/color-preset&gt;
+                </pre>
+            </xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="primary-color" type="xs:string">
+        <xs:annotation>
+            <xs:documentation>
+                <p>
+                    Specify the accent color name. It will be applied to the UI components, such as the focused item in the table of contents,
+                    the active tab, or a button. The default one is <control>frozen</control>.
+                </p>
+
+                <p>Possible values:</p>
+                <ul>
+                    <li>frozen (default)</li>
+                    <li>dracula</li>
+                    <li>iris</li>
+                    <li>aqua</li>
+                    <li>halloween</li>
+                    <li>ruby</li>
+                    <li>blueberry</li>
+                    <li>emerald</li>
+                    <li>metallic</li>
+                    <li>purple</li>
+                    <li>forest</li>
+                    <li>deep-ocean</li>
+                </ul>
+
+                <pre>
+    &lt;primary-color&gt;purple&lt;/primary-color&gt;
+                </pre>
+            </xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="og-twitter" type="xs:string">
+        <xs:annotation>
+            <xs:documentation>
+                <p>
+                    Specify a Twitter handle to be displayed in the link snippet
+                    when sharing links to help pages.
+                </p>
+
+                <pre>
+    &lt;og-twitter&gt;@nickname&lt;/og-twitter&gt;
+                </pre>
+            </xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="og-image" type="xs:string">
+        <xs:annotation>
+            <xs:documentation>
+                <p>
+                    Specify full URL to an image be displayed in the link snippet when
+                    sharing links to help pages.
+                </p>
+
+                <pre>
+    &lt;og-image&gt;https://example.com/sample.jpg&lt;/og-image&gt;
+                </pre>
+            </xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="enable-browser-edits" type="xs:boolean">
+        <xs:annotation>
+            <xs:documentation>
+                <p>
+                    Set to <code>true</code> to enable the <b>Edit page</b> option that points to the
+                    documentation source where users can create a change request.
+                </p>
+            </xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="browser-edits-url" type="xs:string">
+        <xs:annotation>
+            <xs:documentation>
+                <p>
+                    Specify the link to the documentation source where users can create a change request,
+                    for example, GitHub or any other repository.
+                    It must point to the documentation folder where the 'topics' folder is located.
+                    The <code>topics/Topic_title.topic</code> postfix will be added automatically.
+                </p>
+                <p>
+                    If the link points to GitHub, the corresponding icon will be displayed.
+                </p>
+
+                <pre>
+    &lt;browser-edits-url&gt;https://github.com/${user}/${repo}/edit/${branch}/${help-module/ folder name}&lt;/browser-edits-url&gt;
+                </pre>
+            </xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="algolia-api-key" type="xs:string">
+        <xs:annotation>
+            <xs:documentation>
+                <p>
+                    Specify the Algolia Search API key.
+                </p>
+
+                <pre>
+    &lt;algolia-api-key&gt;123456789&lt;/algolia-api-key&gt;
+                </pre>
+            </xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="algolia-index" type="xs:string">
+        <xs:annotation>
+            <xs:documentation>
+                <p>
+                    Specify the Algolia Index name.
+                </p>
+
+                <pre>
+    &lt;algolia-index&gt;prod_INDEX_NAME&lt;/algolia-index&gt;
+                </pre>
+            </xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="algolia-id" type="xs:string">
+        <xs:annotation>
+            <xs:documentation>
+                <p>
+                    Specify the Algolia Application ID.
+                </p>
+
+                <pre>
+    &lt;algolia-id&gt;ABC&lt;/algolia-id&gt;
+                </pre>
+            </xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="noindex-content">
+        <xs:annotation>
+            <xs:documentation>
+                <p>
+                    Set to <code>false</code> to enable indexing of content by external search engines.
+                </p>
+
+                <pre>
+    &lt;noindex-content&gt;false&lt;/noindex-content&gt;
+                </pre>
+            </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:simpleContent>
+                <xs:restriction base="xs:boolean">
+                    <xs:attribute name="status" type="productStatus" use="optional"/>
+                </xs:restriction>
+            </xs:simpleContent>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="product-web-url" type="xs:string">
+        <xs:annotation>
+            <xs:documentation>
+                <p>
+                    Specify the link to the product's main page
+                    where users will be taken when they click the logo in the header.
+                </p>
+
+                <pre>
+    &lt;product-web-url&gt;https://example.com/&lt;/product-web-url&gt;
+                </pre>
+            </xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="write-help-state-file" type="xs:string">
+        <xs:annotation>
+            <xs:documentation>
+                Ad hoc legacy element specific to Ktor documentation, see WH-4411.
+            </xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="custom-video-cover" type="xs:string">
+        <xs:annotation>
+            <xs:documentation>
+                <p>
+                    Specify the name of the image from the images folder to be displayed as video cover
+                    for embedded videos.
+                </p>
+                <p>
+                    To show different covers depending on the selected help theme (light or dark), place the
+                    image for the dark theme with the same file name and the <code>_dark.png</code> suffix
+                    suffix to the same folder.
+                </p>
+                <pre>
+    &lt;custom-video-cover&gt;example.png&lt;/custom-video-cover&gt;
+                </pre>
+            </xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="analytics-head-script-file" type="xs:string">
+        <xs:annotation>
+            <xs:documentation>
+                <p>Specify the name of the file that contains a Google analytics <code>&lt;script&gt;</code> to
+                    install the Google tag into a help website. The script file must be placed in the
+                    <code>cfg/</code> folder. This code will be inserted after the <code>&lt;head&gt;</code> tag
+                    opening.
+                </p>
+            </xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="analytics-body-html-file" type="xs:string">
+        <xs:annotation>
+            <xs:documentation>
+                <p>Specify the name of the file that contains a Google analytics <code>&lt;noscript&gt;</code> to
+                    install the Google tag into a help website.
+                    The script file must be placed in the<code>cfg/</code> folder. This code will be inserted
+                    after the <code>&lt;body&gt;</code> tag opening.
+                </p>
+            </xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="header-logo" type="xs:string">
+        <xs:annotation>
+            <xs:documentation>
+                <p>
+                    Specify the name of the image file with the logo from the 'images' folder
+                    to be displayed in the webhelp header.
+                </p>
+
+                <p>Logo image requirements:</p>
+                <ul>
+                    <li>SVG or PNG formats are accepted. We recommend using SVG for better quality on Retina and 4K displays.</li>
+                    <li>The height-to-width aspect ratio must be from 1.2 to 0.24. We recommend using square images.</li>
+                    <li>Image height should be more than 48px.</li>
+                </ul>
+            </xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="footer">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">
+                <p>Specify the info you want to place in the webhelp footer.
+                    You can put links to social media, an email address, links to other resources, and ICP information.
+                </p>
+                <pre>
+    &lt;footer&gt;
+        &lt;social type="facebook" href="https://example.com"&gt;Product page on Facebook&lt;/social&gt;
+        &lt;social type="rss" href="https://example.com">Product RSS feed&lt;/social&gt;
+        &lt;social type="email" href="mail@example.com">Send us an email&lt;/social&gt;
+        &lt;link href="https://example.com">Custom link 1&lt;/link&gt;
+        &lt;link href="https://example.com">Custom link 2&lt;/link&gt;
+        &lt;link href="https://example.com">Custom link 3&lt;/link&gt;
+    &lt;/footer&gt;
+                </pre>
+            </xs:documentation>
+        </xs:annotation>
+        <xs:complexType mixed="false">
+            <xs:sequence maxOccurs="unbounded" minOccurs="0">
+                <xs:element name="icp" type="xs:string" minOccurs="0" maxOccurs="1">
+                    <xs:annotation>
+                        <xs:documentation xml:lang="en">
+                            <p>Specify the information about the Internet Content Provider license.
+                                This is a legal requirement if your website is hosted on a server in mainland China or
+                                is available to visitors from China.
+                            </p>
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element name="copyright" type="xs:string" minOccurs="0" maxOccurs="1">
+                    <xs:annotation>
+                        <xs:documentation xml:lang="en">
+                            Specify the copyright information, for example,
+                            a company or a legal entity name, a single year or a range of years.
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element name="social" minOccurs="0">
+                    <xs:annotation>
+                        <xs:documentation xml:lang="en">
+                            <p>Specify links to social media accounts, an RSS feed, a blog, or a contact email address.
+                                They will be displayed with the corresponding icons.
+                            </p>
+                            <p>Use the <code>type</code> attribute to specify the resource type,
+                                and the <code>href</code> attribute to specify the link.</p>
+                            <p>Possible <code>type</code> attribute values:</p>
+                            <ul>
+                                <li>facebook</li>
+                                <li>twitter</li>
+                                <li>linkedin</li>
+                                <li>youtube</li>
+                                <li>instagram</li>
+                                <li>weibo</li>
+                                <li>blog</li>
+                                <li>rss</li>
+                                <li>bilibili</li>
+                                <li>email</li>
+                            </ul>
+                        </xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType mixed="false">
+                        <xs:simpleContent>
+                            <xs:extension base="xs:string">
+                                <xs:attribute name="type" use="required">
+                                    <xs:simpleType>
+                                        <xs:restriction base="xs:string">
+                                            <xs:enumeration value="facebook"/>
+                                            <xs:enumeration value="twitter"/>
+                                            <xs:enumeration value="linkedin"/>
+                                            <xs:enumeration value="youtube"/>
+                                            <xs:enumeration value="instagram"/>
+                                            <xs:enumeration value="weibo"/>
+                                            <xs:enumeration value="blog"/>
+                                            <xs:enumeration value="rss"/>
+                                            <xs:enumeration value="bilibili"/>
+                                            <xs:enumeration value="email"/>
+                                        </xs:restriction>
+                                    </xs:simpleType>
+                                </xs:attribute>
+                                <xs:attribute name="href" type="xs:string" use="required"/>
+                            </xs:extension>
+                        </xs:simpleContent>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="link" minOccurs="0">
+                    <xs:annotation>
+                        <xs:documentation xml:lang="en">
+                            <p>Specify custom links to other resources.</p>
+                            <p>Use <code>href</code> attribute to specify the resource address.</p>
+                        </xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType mixed="false">
+                        <xs:simpleContent>
+                            <xs:extension base="xs:string">
+                                <xs:attribute name="href" type="xs:string" use="required"/>
+                            </xs:extension>
+                        </xs:simpleContent>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="build-profile">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="variables" maxOccurs="1" minOccurs="0"/>
+                <xs:element ref="footer" minOccurs="0" maxOccurs="1"/>
+            </xs:sequence>
+            <xs:attribute name="instance" type="xs:string" use="required"/>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

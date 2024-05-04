@@ -1,0 +1,343 @@
+<!--suppress XmlDefaultAttributeValue -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0">
+    <!-- Type definitions -->
+    <xs:complexType name="cache">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute type="xs:string" name="type"/>
+                <xs:attribute type="xs:string" name="location"/>
+                <xs:attribute type="xs:boolean" name="enabled"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <!-- Element definitions -->
+    <xs:element name="ihp">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="settings" minOccurs="0">
+                    <xs:complexType>
+                        <xs:all>
+                            <xs:element name="propbundle-cache" type="cache" minOccurs="0"/>
+                            <xs:element name="icon-cache" type="cache" minOccurs="0"/>
+                            <xs:element name="keymap-cache" type="cache" minOccurs="0"/>
+                            <xs:element name="video-cache" type="cache" minOccurs="0"/>
+                            <xs:element ref="caps" minOccurs="0"/>
+                            <xs:element ref="default-property" minOccurs="0"/>
+                            <xs:element name="id-generator-method" type="xs:string" minOccurs="0"/>
+                            <xs:element name="builds-cache" type="cache" minOccurs="0"/>
+                            <xs:element ref="wrs-supernova" minOccurs="0" maxOccurs="1"/>
+                        </xs:all>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="module" minOccurs="0">
+                    <xs:complexType>
+                        <xs:simpleContent>
+                            <xs:extension base="xs:string">
+                                <xs:attribute type="xs:string" name="name"/>
+                            </xs:extension>
+                        </xs:simpleContent>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element ref="topics"/>
+                <xs:element ref="images"/>
+                <xs:element ref="categories" minOccurs="0"/>
+                <xs:element ref="vars" minOccurs="0"/>
+                <xs:element ref="snippets" minOccurs="0"/>
+                <xs:element ref="instance" maxOccurs="unbounded"/>
+                <xs:element ref="build-config" minOccurs="0"/>
+                <xs:element name="tags" minOccurs="0">
+                    <xs:complexType>
+                        <xs:simpleContent>
+                            <xs:extension base="xs:string">
+                                <xs:attribute type="xs:string" name="src"/>
+                            </xs:extension>
+                        </xs:simpleContent>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+            <xs:attribute type="xs:string" name="version"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="default-property">
+        <xs:annotation>
+            <xs:documentation>
+                <p>
+                    Specify the default properties for the particular markup elements.
+                    This setting is applied to all topics unless you explicitly override it by defining it on the topic level.
+                </p>
+                <p>It has the following attributes:</p>
+                <ul>
+                    <li>
+                        <p>
+                            <i>element-name</i>: specify which elements the attribute will be applied to.
+                        </p>
+                    </li>
+                    <li>
+                        <p><i>property-name</i>: specify an attribute name.
+                        </p>
+                    </li>
+                    <li>
+                        <p><i>value</i>: specify an attribute value.</p>
+                    </li>
+                </ul>
+
+                <pre>
+    &lt;default-property element-name="img" property-name="border-effect" value="line"/&gt;
+                </pre>
+            </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:simpleContent>
+                <xs:extension base="xs:string">
+                    <xs:attribute type="xs:string" name="element-name"/>
+                    <xs:attribute type="xs:string" name="property-name"/>
+                    <xs:attribute type="xs:string" name="value"/>
+                </xs:extension>
+            </xs:simpleContent>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="wrs-supernova">
+        <xs:annotation>
+            <xs:documentation>
+                <p>
+                    FOR INTERNAL USE!
+                    Specify the version of the help builder in the 'use-version' attribute.
+                    For example:
+                </p>
+
+                <pre>
+    &lt;wrs-supernova use-version="2.1.1477-p3867"/&gt;
+                </pre>
+            </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:simpleContent>
+                <xs:extension base="xs:string">
+                    <xs:attribute type="xs:string" name="use-version" use="required"/>
+                </xs:extension>
+            </xs:simpleContent>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="topics">
+        <xs:annotation>
+            <xs:documentation>
+                <p>
+                    Specify the name of the directory where topic files are located.
+                    By default, it is <code>/topics</code>.
+                </p>
+            </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:simpleContent>
+                <xs:extension base="xs:string">
+                    <xs:attribute type="xs:string" name="dir"/>
+                </xs:extension>
+            </xs:simpleContent>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="images">
+        <xs:annotation>
+            <xs:documentation>
+                <p>
+                    Specify the image directory settings.
+                </p>
+                <p>It has the following attributes:</p>
+                <ul>
+                    <li>
+                        <p>
+                            <i>dir</i>: specify the name of the directory where media files (images, GIFs, and video) are located.
+                            By default, it is <code>/images</code>.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <i>web-path</i>: specify the path where images should be located once the help instance is built.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <i>version</i>: specify the image set version.
+                        </p>
+                    </li>
+                </ul>
+            </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:simpleContent>
+                <xs:extension base="xs:string">
+                    <xs:attribute type="xs:string" name="dir"/>
+                    <xs:attribute type="xs:string" name="version" use="optional"/>
+                    <xs:attribute type="xs:string" name="web-path" use="optional"/>
+                    <xs:attribute type="xs:string" name="teamcity-build-path" use="optional"/>
+                </xs:extension>
+            </xs:simpleContent>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="categories">
+        <xs:annotation>
+            <xs:documentation>
+                <p>
+                    Specify the name of the file where you put the list of categories for grouping related links in the See also section.
+                    By default, it is <code>c.list</code>.
+                </p>
+            </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:simpleContent>
+                <xs:extension base="xs:string">
+                    <xs:attribute type="xs:string" name="src"/>
+                </xs:extension>
+            </xs:simpleContent>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="vars">
+        <xs:annotation>
+            <xs:documentation>
+                <p>
+                    Specify the name of the file where you put variables and their values.
+                    By default, it is <code>v.list</code>.
+                </p>
+            </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:simpleContent>
+                <xs:extension base="xs:string">
+                    <xs:attribute type="xs:string" name="src"/>
+                </xs:extension>
+            </xs:simpleContent>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="caps">
+        <xs:annotation>
+            <xs:documentation>
+                <p>
+                    Specify in which capitalization style to display titles.
+                </p>
+                <p>It has the following attributes:</p>
+                <ul>
+                    <li>
+                        <p><i>style</i>: specify a capitalization style:</p>
+                        <ul>
+                            <li>title</li>
+                            <li>sentence</li>
+                            <li>aswritten</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p><i>for</i>: specify to which elements this style should be applied.
+                        </p>
+                    </li>
+                </ul>
+                <pre>
+    &lt;caps style="title" for="toc-element"/&gt;
+                </pre>
+                <p>In this case, titles in the table of contents will be rendered in title case.</p>
+            </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:simpleContent>
+                <xs:extension base="xs:string">
+                    <xs:attribute name="style" use="required">
+                        <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                                <xs:enumeration value="sentence"/>
+                                <xs:enumeration value="title"/>
+                                <xs:enumeration value="aswritten"/>
+                            </xs:restriction>
+                        </xs:simpleType>
+                    </xs:attribute>
+                    <xs:attribute type="xs:string" name="for"/>
+                </xs:extension>
+            </xs:simpleContent>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="snippets">
+        <xs:annotation>
+            <xs:documentation>
+                <p>
+                    Specify the name of the directory where you put code snippets.
+                </p>
+            </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:simpleContent>
+                <xs:extension base="xs:string">
+                    <xs:attribute type="xs:string" name="src"/>
+                </xs:extension>
+            </xs:simpleContent>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="instance">
+        <xs:annotation>
+            <xs:documentation>
+                <p>
+                    Specify an instance. This element is added automatically
+                    when you create a new instance using UI.
+                </p>
+                <pre>
+    &lt;instance src="pd.tree" web-path="/plugin-developers/" version="main"/&gt;
+                </pre>
+            </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:simpleContent>
+                <xs:extension base="xs:string">
+                    <xs:attribute type="xs:string" name="src">
+                        <xs:annotation>
+                            <xs:documentation>
+                                <p>
+                                    Specify the instance <code>.tree</code> file name.
+                                </p>
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:attribute>
+                    <xs:attribute type="xs:string" name="web-path" use="optional">
+                        <xs:annotation>
+                            <xs:documentation>
+                                <p>
+                                    Specify the path that will be the last part of the URL for a particular instance
+                                    after the help instance is built.
+                                </p>
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:attribute>
+                    <xs:attribute type="xs:string" name="version" use="optional">
+                        <xs:annotation>
+                            <xs:documentation>
+                                <p>
+                                    Specify the instance version,
+                                    it will be displayed in the website header.
+                                </p>
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:attribute>
+                    <xs:attribute name="keymaps-mode" use="optional">
+                        <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                                <xs:enumeration value="generated"/>
+                                <xs:enumeration value="provided"/>
+                                <xs:enumeration value="none"/>
+                            </xs:restriction>
+                        </xs:simpleType>
+                    </xs:attribute>
+                </xs:extension>
+            </xs:simpleContent>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="build-config">
+        <xs:annotation>
+            <xs:documentation>
+                <p>
+                    Specify the name of the directory, that will be used as a default location
+                    of the build configuration files.
+                </p>
+            </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:attribute type="xs:string" name="dir" use="required"/>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

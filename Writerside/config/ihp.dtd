@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ELEMENT ihp (settings|snippets*|module|topics+|categories|images|vars|tags|resources|instance+)*>
+<!ELEMENT name ANY>
+<!ELEMENT topics EMPTY>
+<!ELEMENT module (depends-on*)>
+<!ELEMENT depends-on EMPTY>
+<!ELEMENT images EMPTY>
+<!ELEMENT categories EMPTY>
+<!ELEMENT snippets EMPTY>
+<!ELEMENT tags EMPTY>
+<!ELEMENT vars EMPTY>
+<!ELEMENT resources EMPTY>
+<!ELEMENT instance (settings*)>
+<!ELEMENT propbundle-cache EMPTY>
+<!ELEMENT keymap-cache EMPTY>
+<!ELEMENT video-cache EMPTY>
+<!ELEMENT builds-cache EMPTY>
+<!ELEMENT id-generator-method ANY>
+<!ELEMENT settings (caps+|icon-cache*|keymap-cache*|propbundle-cache*|video-cache*|builds-cache*|default-property*|id-generator-method*|wrs-supernova?)>
+<!ELEMENT wrs-supernova EMPTY>
+<!ELEMENT icon-cache EMPTY>
+<!ELEMENT default-property (#PCDATA)>
+<!ELEMENT caps EMPTY>
+<!ATTLIST caps for CDATA #REQUIRED style (sentence|title|aswritten) "aswritten">
+<!ATTLIST default-property element-name CDATA #REQUIRED property-name CDATA #REQUIRED value CDATA #REQUIRED>
+<!ATTLIST topics dir CDATA #IMPLIED src CDATA #IMPLIED version CDATA #IMPLIED teamcity-build-path CDATA #IMPLIED web-path CDATA #IMPLIED>
+<!ATTLIST snippets dir CDATA #IMPLIED src CDATA #IMPLIED version CDATA #IMPLIED teamcity-build-path CDATA #IMPLIED web-path CDATA #IMPLIED>
+<!ATTLIST categories src CDATA #REQUIRED>
+<!ATTLIST vars src CDATA #REQUIRED>
+<!ATTLIST instance id CDATA #IMPLIED src CDATA #REQUIRED version CDATA #IMPLIED teamcity-build-path CDATA #IMPLIED web-path CDATA #IMPLIED default-branch-mapping CDATA #IMPLIED keymaps-mode (generated|provided|none) "none">
+<!ATTLIST tags src CDATA #REQUIRED>
+<!ATTLIST resources src CDATA #REQUIRED>
+<!ATTLIST images dir CDATA #IMPLIED src CDATA #IMPLIED version CDATA #IMPLIED teamcity-build-path CDATA #IMPLIED web-path CDATA #IMPLIED>
+<!ATTLIST ihp version CDATA #REQUIRED>
+<!ATTLIST module name CDATA #REQUIRED root CDATA #IMPLIED>
+<!ATTLIST depends-on name CDATA #REQUIRED root CDATA #REQUIRED>
+<!ATTLIST icon-cache type CDATA #REQUIRED location CDATA #IMPLIED enabled (true|false) "true">
+<!ATTLIST keymap-cache type CDATA #REQUIRED location CDATA #IMPLIED enabled (true|false) "true">
+<!ATTLIST propbundle-cache type CDATA #REQUIRED location CDATA #IMPLIED enabled (true|false) "true">
+<!ATTLIST video-cache type CDATA #REQUIRED location CDATA #IMPLIED enabled (true|false) "true">
+<!ATTLIST builds-cache type CDATA #REQUIRED location CDATA #IMPLIED enabled (true|false) "true">
+<!ATTLIST wrs-supernova use-version CDATA #REQUIRED>

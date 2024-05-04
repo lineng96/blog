@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE instance-profile
-        SYSTEM "https://resources.jetbrains.com/writerside/1.0/product-profile.dtd">
+        SYSTEM "Writerside/config/product-profile.dtd">
 
 <instance-profile id="lineng"
                  name="Mr.Li Blog"
                  start-page="starter.md">
-
     <toc-element topic="starter.md"/>
+    <toc-element toc-title="算法导论">
+        <toc-element topic="1_start.md"/>
+        <toc-element topic="2_Basis_of_algorithm.md"/>
+    </toc-element>
 </instance-profile>
