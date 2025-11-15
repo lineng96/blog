@@ -14,30 +14,31 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout Repository
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: Setup Node
+      - name: Setup Node.js and pnpm Cache
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: pnpm 
+          cache: 'pnpm' 
+          cache-dependency-path: pnpm-lock.yaml 
+          
+      - name: Install pnpm Globally
+        run: npm install -g pnpm 
 
-      - name: Install pnpm
-        run: npm install -g pnpm
+      - name: Install Dependencies
+        run: pnpm install
 
-      - name: Install dependencies
-        run: pnpm install 
+      - name: Build VitePress Site
+        run: pnpm run docs:build
 
-      - name: Build VitePress site
-        run: pnpm run docs:build 
-
-      - name: Setup Pages
+      - name: Setup GitHub Pages
         uses: actions/configure-pages@v4
 
-      - name: Upload artifact
+      - name: Upload Artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: .vitepress/dist
