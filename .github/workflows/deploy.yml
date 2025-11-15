@@ -1,4 +1,4 @@
-name: Mr.Li's Blog.
+name: Mr.Li's Blog
 
 on:
   push:
@@ -19,19 +19,18 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Setup Node.js and pnpm Cache
+      - name: Setup Node.js and pnpm
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'pnpm' 
-          cache-dependency-path: pnpm-lock.yaml 
-          
+          cache: 'pnpm'
+
 
       - name: Install Dependencies
-        run: npx pnpm install
+        run: pnpm install --frozen-lockfile
 
       - name: Build VitePress Site
-        run: npx pnpm run docs:build
+        run: pnpm run docs:build
 
       - name: Setup GitHub Pages
         uses: actions/configure-pages@v4
@@ -39,7 +38,7 @@ jobs:
       - name: Upload Artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: .vitepress/dist 
+          path: .vitepress/dist
 
       - name: Deploy to GitHub Pages
         id: deployment
