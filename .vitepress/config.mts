@@ -2,7 +2,7 @@ import { defineConfig } from 'vitepress'
 
 export default defineConfig({
   srcDir: 'logs',
-  base: '/blog/',
+  base: '/',
   
 
   title: 'Mr.Li Blog',
