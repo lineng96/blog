@@ -41,7 +41,7 @@ jobs:
       - name: Build VitePress Site
         run: |
           rm -rf dist .vitepress/dist
-          pnpm exec docs:build --outDir dist
+          pnpm exec vitepress build --outDir dist
           echo "=== Build exit code ==="
           echo $?
           echo "=== GITHUB_WORKSPACE ==="
