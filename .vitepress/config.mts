@@ -1,12 +1,18 @@
 import { defineConfig } from 'vitepress'
 
 export default defineConfig({
+
+  head: [
+    ['link', { rel: 'icon', href: 'https://cos.lineng.club/favicon.ico' }]
+  ],
+
   srcDir: 'logs',
   base: '/',
   
 
   title: 'Mr.Li Blog',
   description: 'This is my Blog.',
+
 
   themeConfig: {
     nav: [
