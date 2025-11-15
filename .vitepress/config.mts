@@ -2,7 +2,6 @@ import { defineConfig } from 'vitepress'
 
 export default defineConfig({
   srcDir: 'logs',
-  outDir: './dist',
   base: '/./',
   
 
