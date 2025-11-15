@@ -23,13 +23,21 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: pnpm
+          cache: 'pnpm'
 
-      - name: Enable Corepack & activate pnpm
+      - name: Install pnpm (action)
+        uses: pnpm/action-setup@v4
+        with:
+          version: latest
+
+      - name: Debug: confirm pnpm available
         run: |
-          corepack enable
-          corepack prepare pnpm@latest --activate
+          echo "node: $(node -v)"
+          echo "npm:  $(npm -v)"
+          echo "Which pnpm:"
+          command -v pnpm || which pnpm || echo "pnpm not found"
           pnpm -v
+          echo "PATH: $PATH"
 
       - name: Install Dependencies
         run: pnpm install --frozen-lockfile
