@@ -1,14 +1,14 @@
 import { defineConfig } from 'vitepress'
 
-// https://vitepress.dev/reference/site-config
 export default defineConfig({
-  srcDir: "logs",
-  
-  base: "/dist/",
-  title: "Mr.Li Blog",
-  description: "This is my Blog.",
+  srcDir: 'logs',
+  base: '/./',
+  outDir: './dist',
+
+  title: 'Mr.Li Blog',
+  description: 'This is my Blog.',
+
   themeConfig: {
-    // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: 'Home', link: '/' },
       { text: 'Examples', link: '/markdown-examples' }
