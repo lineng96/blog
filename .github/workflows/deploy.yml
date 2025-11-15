@@ -23,29 +23,18 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
+          cache: pnpm
 
       - name: Install pnpm
         uses: pnpm/action-setup@v4
         with:
           version: latest
 
-      - name: Setup pnpm cache
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: pnpm
-
       - name: Install Dependencies
         run: pnpm install --frozen-lockfile
 
       - name: Build VitePress Site
-        run: |
-          rm -rf dist .vitepress/dist
-          pnpm run docs:build -- --outDir dist
-          echo "=== dist 目录内容 ==="
-          ls -la dist || echo "dist 不存在！"
-          echo "=== dist 前几行文件 ==="
-          find dist -type f | head -20 || echo "找不到文件"
+        run: pnpm run docs:build
 
       - name: Setup GitHub Pages
         uses: actions/configure-pages@v4
@@ -53,7 +42,7 @@ jobs:
       - name: Upload Artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: dist 
+          path: .vitepress/dist
 
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
