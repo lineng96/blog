@@ -41,7 +41,7 @@ jobs:
       - name: Build VitePress Site
         run: |
           rm -rf dist .vitepress/dist
-          pnpm run docs:build -- --outDir dist
+          pnpm exec docs:build --outDir dist
           echo "=== Build exit code ==="
           echo $?
           echo "=== GITHUB_WORKSPACE ==="
@@ -63,10 +63,19 @@ jobs:
       - name: Setup GitHub Pages
         uses: actions/configure-pages@v4
 
+      - name: Remove malformed outDir
+        run: |
+          if [ -d "./--outDir" ]; then
+            echo "Removing unexpected directory ./--outDir"
+            rm -rf "./--outDir"
+          else
+            echo "./--outDir not present"
+          fi
+
       - name: Upload Artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: dist 
+          path: dist
 
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
