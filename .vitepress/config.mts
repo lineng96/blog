@@ -16,6 +16,11 @@ export default defineConfig({
 
 
   themeConfig: {
+    algolia: {
+      appId: '3CDSUT4O96', 
+      apiKey: 'd0f1e4e75fcf6a70a12916b22da86fa9', 
+      indexName: 'lineng_club_3cdsut4o96_pages', 
+    },
     nav: [
       { text: 'Home', link: '/' },
       { text: 'About', link: '/markdown-examples' }
