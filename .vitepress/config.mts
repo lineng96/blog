@@ -13,12 +13,13 @@ export default defineConfig({
 
   title: 'Mr.Li',
   description: 'This is my Blog.',
+  lang: 'zh-CN',
 
 
   themeConfig: {
     algolia: {
-      appId: 'OFTORGA22L', 
-      apiKey: '3568ca4037f9b03034f23ac03f481759', 
+      appId: 'Y84O4HB312',
+      apiKey: '5539272e6217f9af24c8b56147ca483e',
       indexName: 'liblog233', 
       
     },
