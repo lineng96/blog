@@ -4,7 +4,7 @@ export default defineConfig({
 
   head: [
     ['link', { rel: 'icon', href: 'https://cos.lineng.club/favicon.ico' }],
-    ['meta', { name: 'algolia-site-verification', content: 'EC2F0E41D78E367C' }]
+    ['meta', { name: 'algolia-site-verification', content: '2BBDFAB0456EC97C' }]
   ],
 
   srcDir: 'logs',
