@@ -3,9 +3,9 @@
 layout: home
 
 hero:
-  name: "Mr.Li Blog"
-  text: "This is my Blog."
-  tagline: My great project tagline
+  name: "Mr.Li's Blog"
+  text: ""
+  tagline: 他教我：收余恨、免娇嗔、且自新、改性情、休恋逝水、苦海回身、早悟兰因。
   actions:
     - theme: brand
       text: Markdown Examples
@@ -22,4 +22,3 @@ features:
   - title: Feature C
     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
 ---
-
