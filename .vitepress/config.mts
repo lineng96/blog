@@ -4,7 +4,7 @@ export default defineConfig({
 
   head: [
     ['link', { rel: 'icon', href: 'https://cos.lineng.club/favicon.ico' }],
-    ['meta', { name: 'algolia-site-verification', content: '8320170770656D80' }]
+    ['meta', { name: 'algolia-site-verification', content: 'EC2F0E41D78E367C' }]
   ],
 
   srcDir: 'logs',
@@ -17,9 +17,10 @@ export default defineConfig({
 
   themeConfig: {
     algolia: {
-      appId: '3CDSUT4O96', 
-      apiKey: 'd0f1e4e75fcf6a70a12916b22da86fa9', 
-      indexName: 'lineng_club_3cdsut4o96_pages', 
+      appId: 'OFTORGA22L', 
+      apiKey: '3568ca4037f9b03034f23ac03f481759', 
+      indexName: 'liblog233', 
+      
     },
     nav: [
       { text: 'Home', link: '/' },
