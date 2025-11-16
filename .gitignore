@@ -12,6 +12,7 @@
 /temp
 # VitePress output
 /.vitepress/dist
+/.vitepress/cache
 
 # Logs
 npm-debug.log*
