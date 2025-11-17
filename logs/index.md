@@ -15,20 +15,7 @@ features:
     link: /java/JVM-Architecture
   - title: 算法导论
     details: 笔记&代码实现
-    link: /IntroductionToAlgorithms/index
-  - title: 数学
-    details:
+    link: /IntroductionToAlgorithms/The-Role-of-Algorithms-in-Computing
   - title: 待定...
-    details:
+    details: 
 ---
-<CustomCard>
- <div class="note">
-  <h2>2025年11月17日，本周任务：</h2>
-  <p>
-    算法导论第二章，学完
-
-
-
-  </p>
-</div>
-  </CustomCard>
