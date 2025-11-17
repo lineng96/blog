@@ -1,4 +1,7 @@
-# 搭建框架
-时间：2025年11月16日晚，希望一周能更新一章。
+# 算法在计算中的作用
 
-书籍：主要看中文第三版，参考英文第四版。
+套用一句书上的话，就从这里开始吧。
+
+Having a solid base of algorithms knowledge and technique is one characteristic that defines the truly skilled programmer.
+With modern computing technology, you can accomplish some takes without knowing much about algorithms, but with a good 
+background in algorithms, you can do much, much more.

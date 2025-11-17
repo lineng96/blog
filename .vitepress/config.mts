@@ -1,5 +1,4 @@
 import { defineConfig } from 'vitepress'
-
 export default defineConfig({
 
     head: [
@@ -13,6 +12,10 @@ export default defineConfig({
 
     title: 'Mr.Li',
     description: 'This is my Blog.',
+    lastUpdated: true,
+    markdown: {
+        math: true
+    },
 
 
     themeConfig: {
@@ -26,6 +29,7 @@ export default defineConfig({
             { text: 'Home', link: '/' },
             { text: 'About', link: '/about' }
         ],
+        lastUpdatedText: '最后更新',
 
         sidebar: {
             //  Java 分组侧边栏
@@ -44,8 +48,9 @@ export default defineConfig({
                 {
                     text: '算法导论',
                     items: [
+                        { text: '序', link: '/IntroductionToAlgorithms/index' },
                         { text: '第一章：算法在计算中的作用', link: '/IntroductionToAlgorithms/The-Role-of-Algorithms-in-Computing' },
-                        { text: '第二章：算法基础', link: '/IntroductionToAlgorithms/index' }
+                        { text: '第二章：算法基础', link: '/IntroductionToAlgorithms/Getting-Started' }
                     ]
                 }
             ]
