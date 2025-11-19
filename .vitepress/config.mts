@@ -14,7 +14,11 @@ export default defineConfig({
     description: 'This is my Blog.',
     lastUpdated: true,
     markdown: {
-        math: true
+        math: true,
+        lineNumbers: true,
+        image: {
+            lazyLoading: true
+        }
     },
 
 
@@ -38,7 +42,7 @@ export default defineConfig({
                     text: 'Java',
                     items: [
                         { text: 'JVM 体系结构', link: '/java/JVM-Architecture' },
-                        { text: '示例2', link: '/java/index' }
+                        { text: 'Hashmap', link: '/java/Hashmap' },
                     ]
                 }
             ],
