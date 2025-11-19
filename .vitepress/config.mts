@@ -42,7 +42,7 @@ export default defineConfig({
                     text: 'Java',
                     items: [
                         { text: 'JVM 体系结构', link: '/java/JVM-Architecture' },
-                        { text: 'Hashmap', link: '/java/Hashmap' },
+                        { text: 'Hashmap', link: '/java/HashMap' },
                     ]
                 }
             ],
