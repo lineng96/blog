@@ -20,7 +20,7 @@ features:
     details:
   - title: LeetCode
     details:
-    link: /LeetCode/java/1-5
+    link: /leetcode/java/1-5
   - title: 待定...
     details:
 ---
