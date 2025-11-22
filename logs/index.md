@@ -18,6 +18,9 @@ features:
     link: /IntroductionToAlgorithms/index
   - title: 数学
     details:
+  - title: LeetCode
+    details:
+    link: /LeetCode/java/1-5
   - title: 待定...
     details:
 ---

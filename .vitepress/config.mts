@@ -54,7 +54,19 @@ export default defineConfig({
                     items: [
                         { text: '序', link: '/IntroductionToAlgorithms/index' },
                         { text: '第一章：算法在计算中的作用', link: '/IntroductionToAlgorithms/The-Role-of-Algorithms-in-Computing' },
-                        { text: '第二章：算法基础', link: '/IntroductionToAlgorithms/Getting-Started' }
+                        { text: '第二章：算法基础', link: '/IntroductionToAlgorithms/Getting-Started' },
+                        { text: '第三章：函数的增长', link: '/IntroductionToAlgorithms/Characterizing-Running-Times' }
+                    ]
+                }
+            ],
+
+            // 新增 LeetCode 分组侧边栏
+            '/LeetCode/': [
+                {
+                    text: 'LeetCode',
+                    items: [
+                        { text: '1', link: '/leetcode/java/1-5' },
+                        { text: '2', link: '/leetcode/' },
                     ]
                 }
             ]
