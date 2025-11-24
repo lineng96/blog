@@ -24,14 +24,3 @@ features:
   - title: 待定...
     details:
 ---
-<CustomCard>
- <div class="note">
-  <h2>2025年11月17日，本周任务：</h2>
-  <p>
-    算法导论第二章，学完
-
-
-
-  </p>
-</div>
-  </CustomCard>
