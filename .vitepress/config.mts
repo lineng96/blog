@@ -10,6 +10,7 @@ export default defineConfig({
             gtag('js', new Date());
             gtag('config', 'G-LTWPQ8DCVK');
         `],
+        ['meta', {name: 'baidu-site-verification', content: 'codeva-JUZBb40LAf'}]
     ],
 
     srcDir: 'logs',
