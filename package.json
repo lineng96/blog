@@ -15,6 +15,9 @@
   "type": "commonjs",
   "devDependencies": {
     "markdown-it-mathjax3": "^4.3.2",
-    "vitepress": "2.0.0-alpha.13"
+    "vitepress": "1.6.4"
+  },
+  "dependencies": {
+    "vite": "^7.2.6"
   }
 }

@@ -1,0 +1,108 @@
+/* .vitepress/theme/style.css */
+
+/*
+| =============================================
+| 1. 核心布局变量调整 (设置全局和列宽)
+| =============================================
+*/
+:root {
+    /* 允许全局布局占用 100% 的视口宽度 */
+    --vp-layout-max-width: 100%;
+
+    /* 移除内容区域的宽度限制 */
+    --vp-content-max-width: none;
+
+    /* 调整左侧侧边栏的最小/默认宽度 */
+    --vp-sidebar-width: 280px;
+
+    /* 【关键修改 1】 增加右侧目录栏的宽度，以容纳更长的标题 */
+    --vp-doc-sidebar-width: 30rem;
+
+    /* 减少列与列之间的间距 */
+    --vp-doc-layout-gap: 16px;
+}
+
+
+/*
+| =============================================
+| 2. 覆盖 CSS Grid 布局 (实现百分比侧边栏)
+| =============================================
+*/
+@media (min-width: 960px) {
+    .VPDoc {
+        /* 保持三列百分比和弹性填充的结构 */
+        grid-template-columns: 18% 1fr var(--vp-doc-sidebar-width) !important;
+        gap: var(--vp-doc-layout-gap) !important;
+    }
+}
+
+
+/*
+| =============================================
+| 3. 强制内容区域加宽 + 缩小 (解决留白和变窄需求)
+| =============================================
+*/
+/* 作用于包裹 Markdown 文章内容的核心容器 */
+.VPDocContent {
+    max-width: none !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+
+    /* 【关键修改 2】 增加左右内边距，使正文变窄 */
+    padding-left: 4rem !important;
+    padding-right: 4rem !important;
+}
+
+/* 覆盖内容容器内部的 .container 类 */
+.VPDocContent .container {
+    max-width: none !important;
+    /* 【关键修改 2】 增加左右内边距，使正文变窄 */
+    padding-left: 4rem !important;
+    padding-right: 4rem !important;
+}
+
+/* 覆盖 VitePress 针对大屏幕断点（如 1440px）的 max-width 规则 */
+@media (min-width: 1440px) {
+    .VPDoc.has-sidebar .content-container,
+    .VPDoc.has-sidebar .content {
+        max-width: 100% !important;
+    }
+}
+
+
+/*
+| =============================================
+| 4. 目录项单行显示 (解决省略号问题)
+| =============================================
+*/
+/* 强制移除目录链接的 max-width */
+.VPDocAsideOutline .root > .outline-link,
+.VPDocAsideOutline .outline-list .outline-link {
+    max-width: none !important;
+}
+
+/* 针对目录链接文本 */
+.VPDocAsideOutline .outline-link {
+    text-overflow: clip !important;
+    /* 强制文本不换行，使它尽量在一行内显示 */
+    white-space: nowrap !important;
+    max-width: none !important;
+}
+
+
+/*
+| =============================================
+| 5. 整体页面边缘边距调整
+| =============================================
+*/
+.Layout .container {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+}
+@media (min-width: 1440px) {
+    .VPDoc.has-sidebar .container,
+    .VPPage .container {
+        padding-left: 2rem !important;
+        padding-right: 2rem !important;
+    }
+}
