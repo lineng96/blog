@@ -3,7 +3,14 @@ export default defineConfig({
 
     head: [
         ['link', { rel: 'icon', href: 'https://cos.lineng.club/favicon.ico' }],
-        ['meta', { name: 'algolia-site-verification', content: '39A61361F1177DAC' }]
+        ['meta', { name: 'algolia-site-verification', content: '39A61361F1177DAC' }],
+        ['script', { async: 'true', src: 'https://www.googletagmanager.com/gtag/js?id=G-LTWPQ8DCVK' }],
+        ['script', {}, `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-LTWPQ8DCVK');
+        `],
     ],
 
     srcDir: 'logs',
