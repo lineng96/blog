@@ -32,9 +32,9 @@ export default defineConfig({
     themeConfig: {
         outline: 'deep',
         algolia: {
-            appId: '1F2O70Q85Y',
-            apiKey: '09aac637bd714f08f64d6394d3741cd5',
-            indexName: 'liblog233',
+            appId: 'Y84O4HB312',
+            apiKey: '5539272e6217f9af24c8b56147ca483e',
+            indexName: 'lineng_club_y84o4hb312_pages',
         },
         nav: [
             { text: 'Home', link: '/' },
