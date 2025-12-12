@@ -153,7 +153,7 @@ vector<vector<int>> Matrix_multiplication::bruteForce(const vector<vector<int> >
 
 ### 4.2.2 Strassen 算法
 
-Strassen 算法将矩阵乘法的时间复杂度降到 $\Theta(n^{lg7})\approx \Theta(n^{2.81})$ ，核心思想是令数不那么茂盛一点儿，只递归进行 7 次，
+Strassen 算法将矩阵乘法的时间复杂度降到 $\Theta(n^{lg7})\approx \Theta(n^{2.81})$ ，核心思想是令树不那么茂盛一点儿，只递归进行 7 次，
 而不是 8 次 $\frac{n}{2} \times \frac{n}{2}$ 的矩阵的乘法。
 
 Strassen 算法递归式：
