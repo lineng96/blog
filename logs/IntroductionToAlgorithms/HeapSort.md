@@ -53,7 +53,7 @@ void buildMaxHeap(vector<int> &A) {
    3. 逻辑上“去掉”这个最尾元素，对新的根节点调用MAX-HEAPIFY；
    4. 重复上述过程。
 ```cpp
-void HeapSort::heapSort(vector<int> &A) {
+void heapSort(vector<int> &A) {
     int heapSize = A.size();
     buildMaxHeap(A);
     for (int i = heapSize - 1; i > 0; i--) {
