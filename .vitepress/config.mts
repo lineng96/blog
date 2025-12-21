@@ -61,7 +61,8 @@ export default defineConfig({
                         { text: '第三章：函数的增长', link: '/IntroductionToAlgorithms/Characterizing-Running-Times' },
                         { text: '第四章：分治策略', link: '/IntroductionToAlgorithms/Divide-and-Conquer' },
                         { text: '第六章：堆排序', link: '/IntroductionToAlgorithms/HeapSort' },
-                        { text: '第七章：快速排序', link: '/IntroductionToAlgorithms/QuickSort' }
+                        { text: '第七章：快速排序', link: '/IntroductionToAlgorithms/QuickSort' },
+                        { text: '第八章：线性时间排序', link: '/IntroductionToAlgorithms/Sorting-in-Linear-Time' },
                     ]
                 }
             ],
