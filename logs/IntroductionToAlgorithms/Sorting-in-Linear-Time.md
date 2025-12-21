@@ -40,6 +40,64 @@ vector<int> countingSort(const vector<int> &A, const int k) {
 }
 ```
 ## 8.2 基数排序
+核心思想：**逐位比较**
 
+通常采用 **LSD（Least Significant Digit，最低有效位）**优先的策略；先按个、十、百...位直到最高位排序。在对每一位进行排序时，必须使用**稳定**的排序算法（例如计数排序）。
 
+从**低位**开始，只需要对整个数组进行 $d$ 次（$d$ 为位数）稳定的全局排序。由于低位的顺序会在高位排序中“稳定地”保留，最终结果依然是有序的。如果从高位（MSB）开始排，需要单独维护高位的顺序。
 
+```cpp
+// 获取数组中的最大值，确定需要排多少位
+int getMax(const vector<int> &A) {
+    int maxValue = A[0];
+    for (const int x: A) {
+        if (x > maxValue) {
+            maxValue = x;
+        }
+    }
+    return maxValue;
+}
+
+// 对于特定的位进行稳定的计数排序（exp，例如：1，10，100，...）
+void countingSortForRadix(vector<int> &A, const int exp) {
+    const int n = A.size();
+    vector<int> output(n);
+    int count[10] = {0};
+
+    // 1.统计当前位(A[i] / exp) % 10出现的次数
+    for (int i = 0; i < n; i++) {
+        count[A[i] / exp % 10]++;
+    }
+
+    // 2.累加频率，确定位置
+    for (int i = 1; i < 10; i++) {
+        count[i] += count[i - 1];
+    }
+
+    // 3.反向填充（保持稳定性）
+    for (int i = n - 1; i >= 0; i--) {
+        const int digit = A[i] / exp % 10;
+        output[count[digit] - 1] = A[i];
+        count[digit]--;
+    }
+
+    //4.写回原数组
+    for (int i = 0; i < n; i++) {
+        A[i] = output[i];
+    }
+}
+
+void radixSort(vector<int> &A) {
+    const int m = getMax(A);
+
+    //从个位开始执行
+    for (int exp = 1; m / exp > 0; exp *= 10) {
+        countingSortForRadix(A, exp);
+    }
+}
+```
+时间复杂度：
+
+假设 $n$ 个数，每个数$d$ 位，基数 $k$（例如10进制 $k = 10$) ，时间复杂度为 $O(d (n + k)) = O(n)$。
+
+如果底层使用子排序算法是稳定的（例如计数排序），那么这个算法就是稳定的。
