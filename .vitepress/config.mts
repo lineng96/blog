@@ -2,17 +2,11 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
 
     head: [
-        ['link', { rel: 'icon', href: 'https://cos.lineng.club/favicon.ico' }],
-        ['script', { async: 'true', src: 'https://www.googletagmanager.com/gtag/js?id=G-LTWPQ8DCVK' }],
-        ['script', {}, `
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-LTWPQ8DCVK');
-        `],
-        ['meta', {name: 'baidu-site-verification', content: 'codeva-BYOsbyxLnA'}]
+        ['link', { rel: 'icon', href: 'https://cos.lineng.uk/favicon.ico' }]
     ],
-
+    sitemap: {
+        hostname: 'https://lineng.uk'
+    },
     srcDir: 'logs',
     base: '/',
 
@@ -63,6 +57,7 @@ export default defineConfig({
                         { text: '第六章：堆排序', link: '/IntroductionToAlgorithms/HeapSort' },
                         { text: '第七章：快速排序', link: '/IntroductionToAlgorithms/QuickSort' },
                         { text: '第八章：线性时间排序', link: '/IntroductionToAlgorithms/Sorting-in-Linear-Time' },
+                        { text: '第九章：中位数和顺序统计量', link: '/IntroductionToAlgorithms/Medians-and-Order-Statistics' },
                     ]
                 }
             ],
