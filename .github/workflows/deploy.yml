@@ -33,7 +33,7 @@ jobs:
           cache: pnpm
 
       - name: Install Dependencies
-        run: pnpm install --frozen-lockfile
+        run: pnpm install --frozen-lockfile --config.only-built-dependencies=esbuild
 
       - name: Build VitePress Site
         run: |
