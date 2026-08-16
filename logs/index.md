@@ -6,8 +6,6 @@ hero:
   name: "Welcome！"
   text: ""
   tagline: 他教我：收余恨、免娇嗔、且自新、改性情、休恋逝水、苦海回身、早悟兰因。
-  image:
-    src: 
   actions:
     
 
